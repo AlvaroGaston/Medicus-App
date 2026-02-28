@@ -20,6 +20,8 @@ namespace Medicus.UX
         public frmInicio()
         {
             InitializeComponent();
+            // 1. Garantizamos que el Dashboard inicie en pantalla completa
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void frmInicio_Load(object sender, EventArgs e)
@@ -41,14 +43,24 @@ namespace Medicus.UX
 
         private void ConfigurarMenuSeguridad()
         {
-            if (Sesion.UsuarioActual.Documento.ToLower() == "admin") return;
+            // 2. Si es el Administrador Supremo, tiene acceso a todo
+            if (Sesion.UsuarioActual.Documento.ToLower() == "admin")
+            {
+                btnSeguridad.Visible = true;
+                btnMantenimiento.Visible = true;
+                return;
+            }
 
-            // Ocultamos lo que no tiene permiso de ver
+            // 3. BLINDAJE ESTRICTO: Para cualquier otro usuario, estos módulos desaparecen
+            btnSeguridad.Visible = false;
+            btnMantenimiento.Visible = false;
+
+            // 4. Mapeo del menú lateral según los permisos de acceso a las pantallas
             btnTurnos.Visible = TienePermiso("frmTurnos");
             btnPacientes.Visible = TienePermiso("frmPacientes");
             btnMedicos.Visible = TienePermiso("frmMedicos");
-            btnSeguridad.Visible = TienePermiso("frmSeguridad");
             btnBitacora.Visible = TienePermiso("frmBitacora");
+            btnReportes.Visible = TienePermiso("frmReportes");
         }
 
         private bool TienePermiso(string nombreMenu)

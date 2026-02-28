@@ -63,5 +63,11 @@ namespace Medicus.UX
                 this.Close();
             }
         }
+
+        private void btnGuardarDr_Click(object sender, EventArgs e)
+        {
+            frmMedicos frm = new frmMedicos();
+            frm.ShowDialog();
+        }
     }
 }

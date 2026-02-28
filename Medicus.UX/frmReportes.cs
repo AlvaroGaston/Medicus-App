@@ -33,7 +33,7 @@ namespace Medicus.UX
 
         private void frmReportes_Load(object sender, EventArgs e)
         {
-            bllSeguridad.AplicarPermisosPantalla(this, "frmReportes", Sesion.PermisosActuales);
+            bllSeguridad.AplicarSeguridadGranular(this, "frmReportes");
 
             // Inicializamos fechas
             dtpFechaTurnos.Value = DateTime.Today;

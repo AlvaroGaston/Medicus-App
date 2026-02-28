@@ -80,39 +80,55 @@ namespace Medicus.DAL
         {
             using (SqlConnection cn = ConexionDB.ObtenerConexion())
             {
-                // Iniciamos la transacción para asegurar que se cree el grupo Y los permisos
                 SqlTransaction trx = cn.BeginTransaction();
                 try
                 {
-                    // 1. Insertar el Grupo y obtener el ID generado
                     SqlCommand cmdGrupo = new SqlCommand("INSERT INTO Grupo (Nombre) VALUES (@nom); SELECT SCOPE_IDENTITY();", cn, trx);
                     cmdGrupo.Parameters.AddWithValue("@nom", nombreGrupo);
-
-                    // Convert.ToInt32 falla si SCOPE_IDENTITY devuelve null, usamos decimal primero por seguridad de SQL
                     int idNuevoGrupo = Convert.ToInt32(cmdGrupo.ExecuteScalar());
 
-                    // 2. Lista de formularios que DEBEN tener una entrada en la matriz de permisos
-                    // Asegurate de que estos nombres coincidan con los que usas en el resto del sistema
-                    string[] formularios = { "frmPacientes", "frmMedicos", "frmTurnos", "frmSeguridad", "frmBitacora", "frmReportes"};
+                    // LISTA MAESTRA DEFINITIVA: Módulos Padre y Botones Hijo para la Matriz Jerárquica
+                    string[] listaMaestra = {
+                        // --- Pantallas ---
+                        "frmInicio", "frmTableroTurnos", "frmTurnos", "frmPacientes", "frmBuscarPaciente",
+                        "frmMedicos", "frmSeguridad", "frmBitacora", "frmReportes", "frmMantenimiento",
+    
+                        // --- Botones del Tablero Diario ---
+                        "btnNuevoTurno", "btnAsistio", "btnCancelarTurno",
 
-                    foreach (string form in formularios)
+                        // --- Botones del Asistente de Turnos ---
+                        "btnConfirmarTurno", "btnBuscarPaciente", "btnImprimirRecibo", "btnTurnos",
+    
+                        // --- Botones Pacientes ---
+                        "btnGuardarPaciente", "btnEditarPaciente", "btnEliminarPaciente",
+    
+                        // --- Botones Médicos ---
+                        "btnGuardarMedico", "btnEditarMedico", "btnEliminarMedico",
+    
+                        // --- Botones Reportes ---
+                        "btnImprimirAgenda", "btnImprimirComprobante",
+    
+                        // --- Mantenimiento ---
+                        "btnGenerarBackup", "btnEjecutarRestore"
+                    };
+                    foreach (string item in listaMaestra)
                     {
                         SqlCommand cmdPermiso = new SqlCommand(
                             "INSERT INTO Permiso (IdGrupo, NombreMenu, PuedeVer, PuedeCrear, PuedeEditar, PuedeEliminar) " +
                             "VALUES (@idG, @nomM, 0, 0, 0, 0)", cn, trx);
 
                         cmdPermiso.Parameters.AddWithValue("@idG", idNuevoGrupo);
-                        cmdPermiso.Parameters.AddWithValue("@nomM", form);
+                        cmdPermiso.Parameters.AddWithValue("@nomM", item);
 
                         cmdPermiso.ExecuteNonQuery();
                     }
 
-                    trx.Commit(); // Si llegó acá, todo salió bien
+                    trx.Commit();
                     return true;
                 }
                 catch (Exception)
                 {
-                    trx.Rollback(); // Si hubo cualquier error, deshacemos todo
+                    trx.Rollback();
                     return false;
                 }
             }
@@ -149,7 +165,7 @@ namespace Medicus.DAL
                 SqlTransaction trx = cn.BeginTransaction();
                 try
                 {
-                    // Primero borramos la matriz de permisos
+                    // Primero borramos la matriz de permisos para no romper integridad referencial
                     SqlCommand cmd1 = new SqlCommand("DELETE FROM Permiso WHERE IdGrupo = @id", cn, trx);
                     cmd1.Parameters.AddWithValue("@id", idGrupo);
                     cmd1.ExecuteNonQuery();

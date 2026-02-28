@@ -26,7 +26,8 @@ namespace Medicus.UX
         private void frmMedicos_Load(object sender, EventArgs e)
         {
             CargarGrilla();
-            bllSeguridad.AplicarPermisosPantalla(this, "frmMedicos", Sesion.PermisosActuales);
+            // ¡MAGIA APLICADA! Ahora lee los permisos específicos de btnGuardarMedico, btnEditarMedico, etc.
+            bllSeguridad.AplicarSeguridadGranular(this, "frmMedicos");
         }
 
         private void CargarGrilla()
@@ -82,7 +83,11 @@ namespace Medicus.UX
             nudDuracion.Value = 30; // Por defecto 30 minutos
         }
 
-        private void btnGuardarNuevo_Click(object sender, EventArgs e)
+        // ==========================================
+        // BOTONES CON NOMBRES ACTUALIZADOS
+        // ==========================================
+
+        private void btnGuardarMedico_Click(object sender, EventArgs e)
         {
             Medico obj = new Medico
             {
@@ -107,7 +112,7 @@ namespace Medicus.UX
             else MessageBox.Show(msj, "Error");
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditarMedico_Click(object sender, EventArgs e)
         {
             if (idMedicoSeleccionado == 0) return;
 
@@ -135,7 +140,7 @@ namespace Medicus.UX
             else MessageBox.Show(msj, "Error");
         }
 
-        private void btnActivar_Click(object sender, EventArgs e)
+        private void btnEliminarMedico_Click(object sender, EventArgs e)
         {
             if (idMedicoSeleccionado == 0) return;
 

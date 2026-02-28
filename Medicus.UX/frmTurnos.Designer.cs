@@ -6,7 +6,10 @@
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null)) { components.Dispose(); }
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
             base.Dispose(disposing);
         }
 
@@ -14,281 +17,349 @@
 
         private void InitializeComponent()
         {
-            this.dgvTurnos = new System.Windows.Forms.DataGridView();
-            this.groupBoxDatos = new System.Windows.Forms.GroupBox();
-            this.cmbHorarios = new System.Windows.Forms.ComboBox();
-            this.btnBuscarMedico = new System.Windows.Forms.Button();
+            this.lblTituloPrincipal = new System.Windows.Forms.Label();
+            this.gbPaso1 = new System.Windows.Forms.GroupBox();
+            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
+            this.lblEspecialidad = new System.Windows.Forms.Label();
             this.btnBuscarPaciente = new System.Windows.Forms.Button();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.txtMotivo = new System.Windows.Forms.TextBox();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.txtMedico = new System.Windows.Forms.TextBox();
             this.txtPaciente = new System.Windows.Forms.TextBox();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.lblMotivo = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.lblMedico = new System.Windows.Forms.Label();
             this.lblPaciente = new System.Windows.Forms.Label();
-            this.btnGuardarNuevo = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
-            this.groupBoxDatos.SuspendLayout();
+            this.gbPaso2 = new System.Windows.Forms.GroupBox();
+            this.lblMedicoSeleccionado = new System.Windows.Forms.Label();
+            this.dgvMedicos = new System.Windows.Forms.DataGridView();
+            this.gbPaso3 = new System.Windows.Forms.GroupBox();
+            this.lblDiaSeleccionado = new System.Windows.Forms.Label();
+            this.dgvDias = new System.Windows.Forms.DataGridView();
+            this.gbPaso4 = new System.Windows.Forms.GroupBox();
+            this.lblHoraSeleccionada = new System.Windows.Forms.Label();
+            this.dgvHorarios = new System.Windows.Forms.DataGridView();
+            this.groupBoxConfirmacion = new System.Windows.Forms.GroupBox();
+            this.btnImprimirRecibo = new System.Windows.Forms.Button();
+            this.btnConfirmarTurno = new System.Windows.Forms.Button();
+            this.btnTurnos = new System.Windows.Forms.Button();
+            this.gbPaso1.SuspendLayout();
+            this.gbPaso2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
+            this.gbPaso3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDias)).BeginInit();
+            this.gbPaso4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).BeginInit();
+            this.groupBoxConfirmacion.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvTurnos
+            // lblTituloPrincipal
             // 
-            this.dgvTurnos.AllowUserToAddRows = false;
-            this.dgvTurnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTurnos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTurnos.Location = new System.Drawing.Point(360, 20);
-            this.dgvTurnos.Name = "dgvTurnos";
-            this.dgvTurnos.ReadOnly = true;
-            this.dgvTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTurnos.Size = new System.Drawing.Size(750, 480);
-            this.dgvTurnos.TabIndex = 0;
-            this.dgvTurnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnos_CellClick);
+            this.lblTituloPrincipal.AutoSize = true;
+            this.lblTituloPrincipal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTituloPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(119)))), ((int)(((byte)(242)))));
+            this.lblTituloPrincipal.Location = new System.Drawing.Point(20, 15);
+            this.lblTituloPrincipal.Name = "lblTituloPrincipal";
+            this.lblTituloPrincipal.Size = new System.Drawing.Size(299, 30);
+            this.lblTituloPrincipal.TabIndex = 0;
+            this.lblTituloPrincipal.Text = "Asistente de Nuevos Turnos";
             // 
-            // groupBoxDatos
+            // gbPaso1
             // 
-            this.groupBoxDatos.Controls.Add(this.cmbHorarios);
-            this.groupBoxDatos.Controls.Add(this.btnBuscarMedico);
-            this.groupBoxDatos.Controls.Add(this.btnBuscarPaciente);
-            this.groupBoxDatos.Controls.Add(this.cmbEstado);
-            this.groupBoxDatos.Controls.Add(this.txtMotivo);
-            this.groupBoxDatos.Controls.Add(this.dtpFecha);
-            this.groupBoxDatos.Controls.Add(this.txtMedico);
-            this.groupBoxDatos.Controls.Add(this.txtPaciente);
-            this.groupBoxDatos.Controls.Add(this.lblEstado);
-            this.groupBoxDatos.Controls.Add(this.lblMotivo);
-            this.groupBoxDatos.Controls.Add(this.lblHora);
-            this.groupBoxDatos.Controls.Add(this.lblFecha);
-            this.groupBoxDatos.Controls.Add(this.lblMedico);
-            this.groupBoxDatos.Controls.Add(this.lblPaciente);
-            this.groupBoxDatos.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.groupBoxDatos.Location = new System.Drawing.Point(20, 20);
-            this.groupBoxDatos.Name = "groupBoxDatos";
-            this.groupBoxDatos.Size = new System.Drawing.Size(320, 480);
-            this.groupBoxDatos.TabIndex = 1;
-            this.groupBoxDatos.TabStop = false;
-            this.groupBoxDatos.Text = "Detalle del Turno";
+            this.gbPaso1.Controls.Add(this.cmbEspecialidad);
+            this.gbPaso1.Controls.Add(this.lblEspecialidad);
+            this.gbPaso1.Controls.Add(this.btnBuscarPaciente);
+            this.gbPaso1.Controls.Add(this.txtPaciente);
+            this.gbPaso1.Controls.Add(this.lblPaciente);
+            this.gbPaso1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gbPaso1.Location = new System.Drawing.Point(20, 60);
+            this.gbPaso1.Name = "gbPaso1";
+            this.gbPaso1.Size = new System.Drawing.Size(940, 90);
+            this.gbPaso1.TabIndex = 1;
+            this.gbPaso1.TabStop = false;
+            this.gbPaso1.Text = "Paso 1: Paciente y Especialidad";
             // 
-            // cmbHorarios
+            // cmbEspecialidad
             // 
-            this.cmbHorarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHorarios.FormattingEnabled = true;
-            this.cmbHorarios.Location = new System.Drawing.Point(165, 175);
-            this.cmbHorarios.Name = "cmbHorarios";
-            this.cmbHorarios.Size = new System.Drawing.Size(140, 25);
-            this.cmbHorarios.TabIndex = 13;
+            this.cmbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEspecialidad.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbEspecialidad.FormattingEnabled = true;
+            this.cmbEspecialidad.Location = new System.Drawing.Point(500, 45);
+            this.cmbEspecialidad.Name = "cmbEspecialidad";
+            this.cmbEspecialidad.Size = new System.Drawing.Size(320, 25);
+            this.cmbEspecialidad.TabIndex = 4;
+            this.cmbEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cmbEspecialidad_SelectedIndexChanged);
             // 
-            // btnBuscarMedico
+            // lblEspecialidad
             // 
-            this.btnBuscarMedico.BackColor = System.Drawing.Color.LightGray;
-            this.btnBuscarMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarMedico.Location = new System.Drawing.Point(265, 110);
-            this.btnBuscarMedico.Name = "btnBuscarMedico";
-            this.btnBuscarMedico.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscarMedico.TabIndex = 12;
-            this.btnBuscarMedico.Text = "🔍";
-            this.btnBuscarMedico.UseVisualStyleBackColor = false;
-            this.btnBuscarMedico.Click += new System.EventHandler(this.btnBuscarMedico_Click);
+            this.lblEspecialidad.AutoSize = true;
+            this.lblEspecialidad.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblEspecialidad.Location = new System.Drawing.Point(500, 25);
+            this.lblEspecialidad.Name = "lblEspecialidad";
+            this.lblEspecialidad.Size = new System.Drawing.Size(134, 15);
+            this.lblEspecialidad.TabIndex = 3;
+            this.lblEspecialidad.Text = "Seleccione Especialidad:";
             // 
             // btnBuscarPaciente
             // 
-            this.btnBuscarPaciente.BackColor = System.Drawing.Color.LightGray;
+            this.btnBuscarPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(119)))), ((int)(((byte)(242)))));
             this.btnBuscarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarPaciente.Location = new System.Drawing.Point(265, 50);
+            this.btnBuscarPaciente.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarPaciente.Location = new System.Drawing.Point(350, 44);
             this.btnBuscarPaciente.Name = "btnBuscarPaciente";
-            this.btnBuscarPaciente.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscarPaciente.TabIndex = 11;
-            this.btnBuscarPaciente.Text = "🔍";
+            this.btnBuscarPaciente.Size = new System.Drawing.Size(100, 27);
+            this.btnBuscarPaciente.TabIndex = 2;
+            this.btnBuscarPaciente.Text = "🔍 Buscar";
             this.btnBuscarPaciente.UseVisualStyleBackColor = false;
             this.btnBuscarPaciente.Click += new System.EventHandler(this.btnBuscarPaciente_Click);
             // 
-            // cmbEstado
-            // 
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(15, 430);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(290, 25);
-            this.cmbEstado.TabIndex = 10;
-            // 
-            // txtMotivo
-            // 
-            this.txtMotivo.Location = new System.Drawing.Point(15, 240);
-            this.txtMotivo.Multiline = true;
-            this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(290, 150);
-            this.txtMotivo.TabIndex = 9;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(15, 175);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(140, 25);
-            this.dtpFecha.TabIndex = 7;
-            this.dtpFecha.ValueChanged += new System.EventHandler(this.dtpFecha_ValueChanged);
-            // 
-            // txtMedico
-            // 
-            this.txtMedico.Location = new System.Drawing.Point(15, 110);
-            this.txtMedico.Name = "txtMedico";
-            this.txtMedico.ReadOnly = true;
-            this.txtMedico.Size = new System.Drawing.Size(240, 25);
-            this.txtMedico.TabIndex = 6;
-            // 
             // txtPaciente
             // 
-            this.txtPaciente.Location = new System.Drawing.Point(15, 50);
+            this.txtPaciente.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtPaciente.Location = new System.Drawing.Point(20, 45);
             this.txtPaciente.Name = "txtPaciente";
             this.txtPaciente.ReadOnly = true;
-            this.txtPaciente.Size = new System.Drawing.Size(240, 25);
-            this.txtPaciente.TabIndex = 5;
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(15, 410);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(53, 19);
-            this.lblEstado.TabIndex = 5;
-            this.lblEstado.Text = "Estado:";
-            // 
-            // lblMotivo
-            // 
-            this.lblMotivo.AutoSize = true;
-            this.lblMotivo.Location = new System.Drawing.Point(15, 220);
-            this.lblMotivo.Name = "lblMotivo";
-            this.lblMotivo.Size = new System.Drawing.Size(127, 19);
-            this.lblMotivo.TabIndex = 4;
-            this.lblMotivo.Text = "Motivo de Consulta:";
-            // 
-            // lblHora
-            // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(165, 150);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(42, 19);
-            this.lblHora.TabIndex = 3;
-            this.lblHora.Text = "Hora:";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(15, 150);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(47, 19);
-            this.lblFecha.TabIndex = 2;
-            this.lblFecha.Text = "Fecha:";
-            // 
-            // lblMedico
-            // 
-            this.lblMedico.AutoSize = true;
-            this.lblMedico.Location = new System.Drawing.Point(15, 90);
-            this.lblMedico.Name = "lblMedico";
-            this.lblMedico.Size = new System.Drawing.Size(57, 19);
-            this.lblMedico.TabIndex = 1;
-            this.lblMedico.Text = "Médico:";
+            this.txtPaciente.Size = new System.Drawing.Size(320, 25);
+            this.txtPaciente.TabIndex = 1;
             // 
             // lblPaciente
             // 
             this.lblPaciente.AutoSize = true;
-            this.lblPaciente.Location = new System.Drawing.Point(15, 30);
+            this.lblPaciente.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPaciente.Location = new System.Drawing.Point(20, 25);
             this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(63, 19);
+            this.lblPaciente.Size = new System.Drawing.Size(107, 15);
             this.lblPaciente.TabIndex = 0;
-            this.lblPaciente.Text = "Paciente:";
+            this.lblPaciente.Text = "Paciente a atender:";
             // 
-            // btnGuardarNuevo
+            // gbPaso2
             // 
-            this.btnGuardarNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(183)))), ((int)(((byte)(42)))));
-            this.btnGuardarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGuardarNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarNuevo.Location = new System.Drawing.Point(20, 510);
-            this.btnGuardarNuevo.Name = "btnGuardarNuevo";
-            this.btnGuardarNuevo.Size = new System.Drawing.Size(150, 40);
-            this.btnGuardarNuevo.TabIndex = 2;
-            this.btnGuardarNuevo.Text = "💾 Agendar Turno";
-            this.btnGuardarNuevo.UseVisualStyleBackColor = false;
-            this.btnGuardarNuevo.Click += new System.EventHandler(this.btnGuardarNuevo_Click);
+            this.gbPaso2.Controls.Add(this.lblMedicoSeleccionado);
+            this.gbPaso2.Controls.Add(this.dgvMedicos);
+            this.gbPaso2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gbPaso2.Location = new System.Drawing.Point(20, 160);
+            this.gbPaso2.Name = "gbPaso2";
+            this.gbPaso2.Size = new System.Drawing.Size(300, 340);
+            this.gbPaso2.TabIndex = 2;
+            this.gbPaso2.TabStop = false;
+            this.gbPaso2.Text = "Paso 2: Profesionales";
             // 
-            // btnEditar
+            // lblMedicoSeleccionado
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(119)))), ((int)(((byte)(242)))));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(190, 510);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(150, 40);
-            this.btnEditar.TabIndex = 3;
-            this.btnEditar.Text = "📝 Modificar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.lblMedicoSeleccionado.AutoSize = true;
+            this.lblMedicoSeleccionado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+            this.lblMedicoSeleccionado.ForeColor = System.Drawing.Color.DimGray;
+            this.lblMedicoSeleccionado.Location = new System.Drawing.Point(20, 310);
+            this.lblMedicoSeleccionado.Name = "lblMedicoSeleccionado";
+            this.lblMedicoSeleccionado.Size = new System.Drawing.Size(66, 19);
+            this.lblMedicoSeleccionado.TabIndex = 1;
+            this.lblMedicoSeleccionado.Text = "Médico: -";
             // 
-            // btnLimpiar
+            // dgvMedicos
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.LightGray;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiar.Location = new System.Drawing.Point(360, 510);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(120, 40);
-            this.btnLimpiar.TabIndex = 4;
-            this.btnLimpiar.Text = "🧹 Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.dgvMedicos.AllowUserToAddRows = false;
+            this.dgvMedicos.AllowUserToDeleteRows = false;
+            this.dgvMedicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMedicos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMedicos.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvMedicos.Location = new System.Drawing.Point(20, 35);
+            this.dgvMedicos.Name = "dgvMedicos";
+            this.dgvMedicos.ReadOnly = true;
+            this.dgvMedicos.RowHeadersVisible = false;
+            this.dgvMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMedicos.Size = new System.Drawing.Size(260, 260);
+            this.dgvMedicos.TabIndex = 0;
+            this.dgvMedicos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicos_CellClick);
+            // 
+            // gbPaso3
+            // 
+            this.gbPaso3.Controls.Add(this.lblDiaSeleccionado);
+            this.gbPaso3.Controls.Add(this.dgvDias);
+            this.gbPaso3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gbPaso3.Location = new System.Drawing.Point(340, 160);
+            this.gbPaso3.Name = "gbPaso3";
+            this.gbPaso3.Size = new System.Drawing.Size(300, 340);
+            this.gbPaso3.TabIndex = 3;
+            this.gbPaso3.TabStop = false;
+            this.gbPaso3.Text = "Paso 3: Días Disponibles";
+            // 
+            // lblDiaSeleccionado
+            // 
+            this.lblDiaSeleccionado.AutoSize = true;
+            this.lblDiaSeleccionado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+            this.lblDiaSeleccionado.ForeColor = System.Drawing.Color.DimGray;
+            this.lblDiaSeleccionado.Location = new System.Drawing.Point(20, 310);
+            this.lblDiaSeleccionado.Name = "lblDiaSeleccionado";
+            this.lblDiaSeleccionado.Size = new System.Drawing.Size(44, 19);
+            this.lblDiaSeleccionado.TabIndex = 2;
+            this.lblDiaSeleccionado.Text = "Día: -";
+            // 
+            // dgvDias
+            // 
+            this.dgvDias.AllowUserToAddRows = false;
+            this.dgvDias.AllowUserToDeleteRows = false;
+            this.dgvDias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDias.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDias.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvDias.Location = new System.Drawing.Point(20, 35);
+            this.dgvDias.Name = "dgvDias";
+            this.dgvDias.ReadOnly = true;
+            this.dgvDias.RowHeadersVisible = false;
+            this.dgvDias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDias.Size = new System.Drawing.Size(260, 260);
+            this.dgvDias.TabIndex = 1;
+            this.dgvDias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDias_CellClick);
+            // 
+            // gbPaso4
+            // 
+            this.gbPaso4.Controls.Add(this.lblHoraSeleccionada);
+            this.gbPaso4.Controls.Add(this.dgvHorarios);
+            this.gbPaso4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gbPaso4.Location = new System.Drawing.Point(660, 160);
+            this.gbPaso4.Name = "gbPaso4";
+            this.gbPaso4.Size = new System.Drawing.Size(300, 340);
+            this.gbPaso4.TabIndex = 4;
+            this.gbPaso4.TabStop = false;
+            this.gbPaso4.Text = "Paso 4: Horarios";
+            // 
+            // lblHoraSeleccionada
+            // 
+            this.lblHoraSeleccionada.AutoSize = true;
+            this.lblHoraSeleccionada.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+            this.lblHoraSeleccionada.ForeColor = System.Drawing.Color.DimGray;
+            this.lblHoraSeleccionada.Location = new System.Drawing.Point(20, 310);
+            this.lblHoraSeleccionada.Name = "lblHoraSeleccionada";
+            this.lblHoraSeleccionada.Size = new System.Drawing.Size(53, 19);
+            this.lblHoraSeleccionada.TabIndex = 2;
+            this.lblHoraSeleccionada.Text = "Hora: -";
+            // 
+            // dgvHorarios
+            // 
+            this.dgvHorarios.AllowUserToAddRows = false;
+            this.dgvHorarios.AllowUserToDeleteRows = false;
+            this.dgvHorarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHorarios.BackgroundColor = System.Drawing.Color.White;
+            this.dgvHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHorarios.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvHorarios.Location = new System.Drawing.Point(20, 35);
+            this.dgvHorarios.Name = "dgvHorarios";
+            this.dgvHorarios.ReadOnly = true;
+            this.dgvHorarios.RowHeadersVisible = false;
+            this.dgvHorarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHorarios.Size = new System.Drawing.Size(260, 260);
+            this.dgvHorarios.TabIndex = 1;
+            this.dgvHorarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHorarios_CellClick);
+            // 
+            // groupBoxConfirmacion
+            // 
+            this.groupBoxConfirmacion.Controls.Add(this.btnImprimirRecibo);
+            this.groupBoxConfirmacion.Controls.Add(this.btnConfirmarTurno);
+            this.groupBoxConfirmacion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.groupBoxConfirmacion.Location = new System.Drawing.Point(20, 510);
+            this.groupBoxConfirmacion.Name = "groupBoxConfirmacion";
+            this.groupBoxConfirmacion.Size = new System.Drawing.Size(940, 90);
+            this.groupBoxConfirmacion.TabIndex = 5;
+            this.groupBoxConfirmacion.TabStop = false;
+            this.groupBoxConfirmacion.Text = "Paso 5: Confirmación";
+            // 
+            // btnImprimirRecibo
+            // 
+            this.btnImprimirRecibo.BackColor = System.Drawing.Color.DimGray;
+            this.btnImprimirRecibo.Enabled = false;
+            this.btnImprimirRecibo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirRecibo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnImprimirRecibo.ForeColor = System.Drawing.Color.White;
+            this.btnImprimirRecibo.Location = new System.Drawing.Point(222, 24);
+            this.btnImprimirRecibo.Name = "btnImprimirRecibo";
+            this.btnImprimirRecibo.Size = new System.Drawing.Size(190, 50);
+            this.btnImprimirRecibo.TabIndex = 5;
+            this.btnImprimirRecibo.Text = "🖨️ Imprimir Recibo";
+            this.btnImprimirRecibo.UseVisualStyleBackColor = false;
+            this.btnImprimirRecibo.Click += new System.EventHandler(this.btnImprimirRecibo_Click);
+            // 
+            // btnConfirmarTurno
+            // 
+            this.btnConfirmarTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(183)))), ((int)(((byte)(42)))));
+            this.btnConfirmarTurno.Enabled = false;
+            this.btnConfirmarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmarTurno.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnConfirmarTurno.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmarTurno.Location = new System.Drawing.Point(6, 24);
+            this.btnConfirmarTurno.Name = "btnConfirmarTurno";
+            this.btnConfirmarTurno.Size = new System.Drawing.Size(210, 50);
+            this.btnConfirmarTurno.TabIndex = 4;
+            this.btnConfirmarTurno.Text = "✅ Confirmar Turno";
+            this.btnConfirmarTurno.UseVisualStyleBackColor = false;
+            this.btnConfirmarTurno.Click += new System.EventHandler(this.btnConfirmarTurno_Click);
+            // 
+            // btnTurnos
+            // 
+            this.btnTurnos.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnTurnos.Enabled = false;
+            this.btnTurnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTurnos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnTurnos.ForeColor = System.Drawing.Color.White;
+            this.btnTurnos.Location = new System.Drawing.Point(852, 12);
+            this.btnTurnos.Name = "btnTurnos";
+            this.btnTurnos.Size = new System.Drawing.Size(108, 50);
+            this.btnTurnos.TabIndex = 6;
+            this.btnTurnos.Text = "✅ ABM";
+            this.btnTurnos.UseVisualStyleBackColor = false;
+            this.btnTurnos.Click += new System.EventHandler(this.btnTurnos_Click);
             // 
             // frmTurnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1130, 570);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnGuardarNuevo);
-            this.Controls.Add(this.groupBoxDatos);
-            this.Controls.Add(this.dgvTurnos);
+            this.ClientSize = new System.Drawing.Size(984, 621);
+            this.Controls.Add(this.btnTurnos);
+            this.Controls.Add(this.groupBoxConfirmacion);
+            this.Controls.Add(this.gbPaso4);
+            this.Controls.Add(this.gbPaso3);
+            this.Controls.Add(this.gbPaso2);
+            this.Controls.Add(this.gbPaso1);
+            this.Controls.Add(this.lblTituloPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "frmTurnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medicus - Gestión de Turnos";
             this.Load += new System.EventHandler(this.frmTurnos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).EndInit();
-            this.groupBoxDatos.ResumeLayout(false);
-            this.groupBoxDatos.PerformLayout();
+            this.gbPaso1.ResumeLayout(false);
+            this.gbPaso1.PerformLayout();
+            this.gbPaso2.ResumeLayout(false);
+            this.gbPaso2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
+            this.gbPaso3.ResumeLayout(false);
+            this.gbPaso3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDias)).EndInit();
+            this.gbPaso4.ResumeLayout(false);
+            this.gbPaso4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).EndInit();
+            this.groupBoxConfirmacion.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvTurnos;
-        private System.Windows.Forms.GroupBox groupBoxDatos;
-        private System.Windows.Forms.ComboBox cmbHorarios;
-        private System.Windows.Forms.Button btnBuscarMedico;
+        private System.Windows.Forms.Label lblTituloPrincipal;
+        private System.Windows.Forms.GroupBox gbPaso1;
+        private System.Windows.Forms.ComboBox cmbEspecialidad;
+        private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.Button btnBuscarPaciente;
-        private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.TextBox txtMotivo;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.TextBox txtMedico;
         private System.Windows.Forms.TextBox txtPaciente;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.Label lblMotivo;
-        private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Label lblMedico;
         private System.Windows.Forms.Label lblPaciente;
-        private System.Windows.Forms.Button btnGuardarNuevo;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.GroupBox gbPaso2;
+        private System.Windows.Forms.DataGridView dgvMedicos;
+        private System.Windows.Forms.Label lblMedicoSeleccionado;
+        private System.Windows.Forms.GroupBox gbPaso3;
+        private System.Windows.Forms.DataGridView dgvDias;
+        private System.Windows.Forms.Label lblDiaSeleccionado;
+        private System.Windows.Forms.GroupBox gbPaso4;
+        private System.Windows.Forms.Label lblHoraSeleccionada;
+        private System.Windows.Forms.DataGridView dgvHorarios;
+        private System.Windows.Forms.GroupBox groupBoxConfirmacion;
+        private System.Windows.Forms.Button btnImprimirRecibo;
+        private System.Windows.Forms.Button btnConfirmarTurno;
+        private System.Windows.Forms.Button btnTurnos;
     }
 }

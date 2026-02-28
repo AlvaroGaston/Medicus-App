@@ -22,7 +22,7 @@ namespace Medicus.UX
 
         private void frmBitacora_Load(object sender, EventArgs e)
         {
-            bllSeguridad.AplicarPermisosPantalla(this, "frmBitacora", Sesion.PermisosActuales);
+            bllSeguridad.AplicarSeguridadGranular(this, "frmBitacora");
 
             chkVerTodo.Checked = false;
             dtpFecha.Value = DateTime.Today;

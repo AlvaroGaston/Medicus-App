@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Medicus.DAL;
 using Medicus.Entidades;
-
-
 
 namespace Medicus.BLL
 {
@@ -29,7 +25,9 @@ namespace Medicus.BLL
             }
         }
 
-        // Agregá estos métodos a tu SeguridadBLL.cs
+        // ========================================================
+        // GESTIÓN DE ROLES (ABM)
+        // ========================================================
         public string ModificarRol(int idGrupo, string nuevoNombre)
         {
             if (string.IsNullOrWhiteSpace(nuevoNombre)) return "El nombre no puede estar vacío.";
@@ -82,37 +80,45 @@ namespace Medicus.BLL
             }
         }
 
-        public void AplicarPermisosPantalla(Form formulario, string nombreMenu, List<Permiso> permisosActuales)
+        // ========================================================
+        // MOTOR DE SEGURIDAD GRANULAR (PANTALLAS Y BOTONES)
+        // ========================================================
+        public void AplicarSeguridadGranular(Form formulario, string nombreModulo)
         {
+            // 1. El Administrador Supremo tiene acceso irrestricto
             if (Sesion.UsuarioActual?.Documento?.Trim().ToLower() == "admin") return;
 
-            var permiso = permisosActuales?.FirstOrDefault(p => p.NombreMenu == nombreMenu);
+            // 2. Verificamos si el usuario tiene permiso para abrir la pantalla completa
+            var permisoPantalla = Sesion.PermisosActuales?.FirstOrDefault(p => p.NombreMenu == nombreModulo);
 
-            if (permiso == null || !permiso.PuedeVer)
+            if (permisoPantalla == null || !permisoPantalla.PuedeVer)
             {
                 MessageBox.Show("No tiene los privilegios necesarios para acceder a este módulo.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                // Forzamos el cierre del formulario antes de que termine de cargar
                 formulario.BeginInvoke(new MethodInvoker(formulario.Close));
                 return;
             }
 
-            foreach (Control ctrl in formulario.Controls) EvaluarControles(ctrl, permiso);
+            // 3. Si puede entrar a la pantalla, evaluamos botón por botón
+            EvaluarControlesGranulares(formulario.Controls);
         }
 
-        private void EvaluarControles(Control ctrl, Permiso permiso)
+        private void EvaluarControlesGranulares(Control.ControlCollection controles)
         {
-            if (ctrl is Button btn)
+            foreach (Control c in controles)
             {
-                if (btn.Name.Contains("Guardar") || btn.Name.Contains("Nuevo") || btn.Name.Contains("Crear"))
-                    btn.Enabled = permiso.PuedeCrear;
-                else if (btn.Name.Contains("Editar") || btn.Name.Contains("Actualizar") || btn.Name.Contains("Modificar"))
-                    btn.Enabled = permiso.PuedeEditar;
-                else if (btn.Name.Contains("Eliminar") || btn.Name.Contains("Borrar") || btn.Name.Contains("Baja"))
-                    btn.Enabled = permiso.PuedeEliminar;
-            }
+                // Entramos recursivamente en paneles, groupboxes, etc.
+                if (c.HasChildren) EvaluarControlesGranulares(c.Controls);
 
-            if (ctrl.HasChildren)
-            {
-                foreach (Control hijo in ctrl.Controls) EvaluarControles(hijo, permiso);
+                // Buscamos si el control (ej: "btnGuardarNuevo") existe en la lista de permisos de la Base de Datos
+                var permisoControl = Sesion.PermisosActuales?.FirstOrDefault(p => p.NombreMenu == c.Name);
+
+                if (permisoControl != null)
+                {
+                    // Si el control está registrado en la matriz, aplicamos la visibilidad según lo que se tildó
+                    c.Visible = permisoControl.PuedeVer;
+                    c.Enabled = permisoControl.PuedeVer;
+                }
             }
         }
     }

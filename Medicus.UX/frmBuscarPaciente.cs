@@ -28,10 +28,23 @@ namespace Medicus.UX
 
         private void frmBuscarPaciente_Load(object sender, EventArgs e)
         {
-            // Cargamos todos al abrir
+            // 1. Aplicamos la Seguridad Granular para este formulario
+            // (Esto se encarga de habilitar o deshabilitar el btnGuardarPaciente según el rol)
+            SeguridadBLL bllSeguridad = new SeguridadBLL();
+            bllSeguridad.AplicarSeguridadGranular(this, "frmBuscarPaciente");
+
+            // 2. Cargamos todos los pacientes al abrir
             listaOriginal = bllPaciente.ListarPacientes();
             dgvPacientes.DataSource = listaOriginal;
-            if (dgvPacientes.Columns["IdPaciente"] != null) dgvPacientes.Columns["IdPaciente"].Visible = false;
+
+            // 3. Ocultamos las columnas técnicas y configuramos la vista
+            if (dgvPacientes.Columns["IdPaciente"] != null)
+            {
+                dgvPacientes.Columns["IdPaciente"].Visible = false;
+            }
+
+            // Opcional: quitamos la selección por defecto de la primera fila para que se vea más limpio
+            dgvPacientes.ClearSelection();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -64,6 +77,12 @@ namespace Medicus.UX
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void btnGuardarPaciente_Click(object sender, EventArgs e)
+        {
+            frmPacientes frm = new frmPacientes();
+            frm.ShowDialog();
         }
     }
 }

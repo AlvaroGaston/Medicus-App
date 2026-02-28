@@ -27,7 +27,7 @@ namespace Medicus.UX
         {
             CargarGrilla();
             // ¡ACÁ OCURRE LA MAGIA! Aplicamos los permisos para habilitar/deshabilitar botones
-            bllSeguridad.AplicarPermisosPantalla(this, "frmPacientes", Sesion.PermisosActuales);
+            bllSeguridad.AplicarSeguridadGranular(this, "frmPacientes");
         }
 
         private void CargarGrilla()
@@ -48,7 +48,11 @@ namespace Medicus.UX
             txtDni.ReadOnly = false; // Permitimos volver a escribir el DNI para un paciente nuevo
         }
 
-        private void btnGuardarNuevo_Click(object sender, EventArgs e)
+        // ==========================================
+        // BOTONES CON NOMBRES ACTUALIZADOS
+        // ==========================================
+
+        private void btnGuardarPaciente_Click(object sender, EventArgs e)
         {
             Paciente obj = new Paciente
             {
@@ -70,7 +74,7 @@ namespace Medicus.UX
             else MessageBox.Show(msj, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditarPaciente_Click(object sender, EventArgs e)
         {
             if (idPacienteSeleccionado == 0)
             {
@@ -99,7 +103,7 @@ namespace Medicus.UX
             else MessageBox.Show(msj, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminarPaciente_Click(object sender, EventArgs e)
         {
             if (idPacienteSeleccionado == 0)
             {
