@@ -91,25 +91,28 @@ namespace Medicus.DAL
                     string[] listaMaestra = {
                         // --- Pantallas ---
                         "frmInicio", "frmTableroTurnos", "frmTurnos", "frmPacientes", "frmBuscarPaciente",
-                        "frmMedicos", "frmSeguridad", "frmBitacora", "frmReportes", "frmMantenimiento",
+                        "frmMedicos", "frmBuscarMedico", "frmSeguridad", "frmBitacora", "frmReportes", "frmMantenimiento",
     
-                        // --- Botones del Tablero Diario ---
-                        "btnNuevoTurno", "btnAsistio", "btnCancelarTurno",
+                        // --- Menú Principal ---
+                        "btnTurnos", "btnPacientes", "btnMedicos", "btnSeguridad", "btnBitacora", "btnReportes", "btnMantenimiento",
 
-                        // --- Botones del Asistente de Turnos ---
-                        "btnConfirmarTurno", "btnBuscarPaciente", "btnImprimirRecibo", "btnTurnos",
+                        // --- Turnos ---
+                        "btnNuevoTurno", "btnAsistio", "btnCancelarTurno", "btnBuscarPaciente", "btnConfirmarTurno", "btnImprimirRecibo",
     
-                        // --- Botones Pacientes ---
+                        // --- Pacientes ---
                         "btnGuardarPaciente", "btnEditarPaciente", "btnEliminarPaciente",
     
-                        // --- Botones Médicos ---
-                        "btnGuardarMedico", "btnEditarMedico", "btnEliminarMedico",
+                        // --- Médicos ---
+                        "btnGuardarDr", "btnGuardarMedico", "btnEditarMedico", "btnEliminarMedico",
     
-                        // --- Botones Reportes ---
-                        "btnImprimirAgenda", "btnImprimirComprobante",
+                        // --- Reportes ---
+                        "btnImprimirComprobante", "btnImprimirAgenda",
     
+                        // --- Seguridad ---
+                        "btnNuevoRol", "btnEditarRol", "btnEliminarRol", "btnGuardarPermisos",
+
                         // --- Mantenimiento ---
-                        "btnGenerarBackup", "btnEjecutarRestore"
+                        "btnEjecutarBackup", "btnEjecutarRestore"
                     };
                     foreach (string item in listaMaestra)
                     {

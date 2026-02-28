@@ -74,35 +74,50 @@ namespace Medicus.UX
             dt.Columns.Add("PuedeEditar", typeof(bool));
             dt.Columns.Add("PuedeEliminar", typeof(bool));
 
-            // --- ARMADO DEL ÁRBOL ---
+            // 1. MENÚ PRINCIPAL
+            AgregarFilaJerarquica(dt, permisosVisibles, "frmInicio", "▶ MENÚ PRINCIPAL");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnTurnos", "      ↳ Acceso a Turnos");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnPacientes", "      ↳ Acceso a Pacientes");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnMedicos", "      ↳ Acceso a Médicos");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnReportes", "      ↳ Acceso a Reportes");
 
-            // 1. RECEPCIÓN Y TABLERO
-            AgregarFilaJerarquica(dt, permisosVisibles, "frmTableroTurnos", "▶ TABLERO DE RECEPCIÓN");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnNuevoTurno", "      ↳ Botón: Nuevo Turno (Abre Asistente)");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnAsistio", "      ↳ Botón: Marcar Presente");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnCancelarTurno", "      ↳ Botón: Cancelar Turno");
-
-            // 2. ASISTENTE DE TURNOS
-            AgregarFilaJerarquica(dt, permisosVisibles, "frmTurnos", "▶ ASISTENTE DE TURNOS");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnConfirmarTurno", "      ↳ Confirmar Turno");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnBuscarPaciente", "      ↳ Buscar Paciente (Lupa)");
+            // 2. TURNOS
+            AgregarFilaJerarquica(dt, permisosVisibles, "frmTableroTurnos", "▶ GESTIÓN DE TURNOS");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnNuevoTurno", "      ↳ Crear Nuevo Turno");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnAsistio", "      ↳ Marcar Presente");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnCancelarTurno", "      ↳ Cancelar Turno");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnConfirmarTurno", "      ↳ Confirmar (Asistente)");
             AgregarFilaJerarquica(dt, permisosVisibles, "btnImprimirRecibo", "      ↳ Imprimir Recibo");
 
-            // 3. PACIENTES Y BÚSQUEDA
+            // 3. PACIENTES
             AgregarFilaJerarquica(dt, permisosVisibles, "frmPacientes", "▶ PACIENTES");
-            AgregarFilaJerarquica(dt, permisosVisibles, "frmBuscarPaciente", "      ↳ Pantalla de Búsqueda de Pacientes");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnGuardarPaciente", "      ↳ Guardar/Alta Paciente");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnEditarPaciente", "      ↳ Editar Paciente");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnGuardarPaciente", "      ↳ Alta / Guardar Paciente");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnEditarPaciente", "      ↳ Modificar Paciente");
             AgregarFilaJerarquica(dt, permisosVisibles, "btnEliminarPaciente", "      ↳ Eliminar Paciente");
 
-
-            // 4. BITÁCORA
-            AgregarFilaJerarquica(dt, permisosVisibles, "frmBitacora", "▶ BITÁCORA DE AUDITORÍA");
+            // 4. MÉDICOS
+            AgregarFilaJerarquica(dt, permisosVisibles, "frmMedicos", "▶ MÉDICOS");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnGuardarMedico", "      ↳ Alta / Guardar Médico");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnEditarMedico", "      ↳ Modificar Médico");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnEliminarMedico", "      ↳ Cambiar Estado");
 
             // 5. REPORTES
-            AgregarFilaJerarquica(dt, permisosVisibles, "frmReportes", "▶ REPORTES E IMPRESIÓN");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnImprimirAgenda", "      ↳ Imprimir Agenda");
-            AgregarFilaJerarquica(dt, permisosVisibles, "btnImprimirComprobante", "      ↳ Imprimir Comprobante");
+            AgregarFilaJerarquica(dt, permisosVisibles, "frmReportes", "▶ REPORTES");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnImprimirComprobante", "      ↳ Imprimir Comprobantes");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnImprimirAgenda", "      ↳ Imprimir Agenda Médica");
+
+            // 6. ADMINISTRACIÓN MÁXIMA
+            AgregarFilaJerarquica(dt, permisosVisibles, "frmSeguridad", "▶ SEGURIDAD DEL SISTEMA");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnNuevoRol", "      ↳ Crear Roles");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnEditarRol", "      ↳ Editar Roles");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnEliminarRol", "      ↳ Eliminar Roles");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnGuardarPermisos", "      ↳ Modificar Matriz");
+
+            AgregarFilaJerarquica(dt, permisosVisibles, "frmMantenimiento", "▶ MANTENIMIENTO (DB)");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnEjecutarBackup", "      ↳ Generar Backups");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnEjecutarRestore", "      ↳ Restaurar Sistema");
+
+            AgregarFilaJerarquica(dt, permisosVisibles, "frmBitacora", "▶ AUDITORÍA (BITÁCORA)");
 
             dgvPermisos.DataSource = dt;
 

@@ -22,6 +22,12 @@
             this.btnNuevoTurno = new System.Windows.Forms.Button();
             this.btnCancelarTurno = new System.Windows.Forms.Button();
             this.btnAsistio = new System.Windows.Forms.Button();
+            this.txtBuscarTurno = new System.Windows.Forms.TextBox();
+            this.cmbFiltroEstado = new System.Windows.Forms.ComboBox();
+            this.cmbFiltroEspecialidad = new System.Windows.Forms.ComboBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.lblEspecialidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnosDelDia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -36,11 +42,72 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Tablero de Recepción";
             // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblBuscar.Location = new System.Drawing.Point(20, 55);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(205, 19);
+            this.lblBuscar.TabIndex = 7;
+            this.lblBuscar.Text = "Buscar por motivo o nombre:";
+            // 
+            // txtBuscarTurno
+            // 
+            this.txtBuscarTurno.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtBuscarTurno.Location = new System.Drawing.Point(20, 75);
+            this.txtBuscarTurno.Name = "txtBuscarTurno";
+            this.txtBuscarTurno.Size = new System.Drawing.Size(230, 25);
+            this.txtBuscarTurno.TabIndex = 8;
+            this.txtBuscarTurno.TextChanged += new System.EventHandler(this.txtBuscarTurno_TextChanged);
+            // 
+            // lblEspecialidad
+            // 
+            this.lblEspecialidad.AutoSize = true;
+            this.lblEspecialidad.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblEspecialidad.Location = new System.Drawing.Point(270, 55);
+            this.lblEspecialidad.Name = "lblEspecialidad";
+            this.lblEspecialidad.Size = new System.Drawing.Size(161, 19);
+            this.lblEspecialidad.TabIndex = 11;
+            this.lblEspecialidad.Text = "Filtrar por Especialidad:";
+            // 
+            // cmbFiltroEspecialidad
+            // 
+            this.cmbFiltroEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltroEspecialidad.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbFiltroEspecialidad.FormattingEnabled = true;
+            this.cmbFiltroEspecialidad.Location = new System.Drawing.Point(270, 75);
+            this.cmbFiltroEspecialidad.Name = "cmbFiltroEspecialidad";
+            this.cmbFiltroEspecialidad.Size = new System.Drawing.Size(220, 25);
+            this.cmbFiltroEspecialidad.TabIndex = 12;
+            this.cmbFiltroEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroEspecialidad_SelectedIndexChanged);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblEstado.Location = new System.Drawing.Point(510, 55);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(129, 19);
+            this.lblEstado.TabIndex = 9;
+            this.lblEstado.Text = "Filtrar por Estado:";
+            // 
+            // cmbFiltroEstado
+            // 
+            this.cmbFiltroEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltroEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbFiltroEstado.FormattingEnabled = true;
+            this.cmbFiltroEstado.Location = new System.Drawing.Point(510, 75);
+            this.cmbFiltroEstado.Name = "cmbFiltroEstado";
+            this.cmbFiltroEstado.Size = new System.Drawing.Size(160, 25);
+            this.cmbFiltroEstado.TabIndex = 10;
+            this.cmbFiltroEstado.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroEstado_SelectedIndexChanged);
+            // 
             // lblFiltroFecha
             // 
             this.lblFiltroFecha.AutoSize = true;
             this.lblFiltroFecha.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblFiltroFecha.Location = new System.Drawing.Point(680, 25);
+            this.lblFiltroFecha.Location = new System.Drawing.Point(690, 55);
             this.lblFiltroFecha.Name = "lblFiltroFecha";
             this.lblFiltroFecha.Size = new System.Drawing.Size(117, 19);
             this.lblFiltroFecha.TabIndex = 1;
@@ -50,9 +117,9 @@
             // 
             this.dtpFechaFiltro.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpFechaFiltro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFiltro.Location = new System.Drawing.Point(800, 22);
+            this.dtpFechaFiltro.Location = new System.Drawing.Point(690, 75);
             this.dtpFechaFiltro.Name = "dtpFechaFiltro";
-            this.dtpFechaFiltro.Size = new System.Drawing.Size(160, 25);
+            this.dtpFechaFiltro.Size = new System.Drawing.Size(140, 25);
             this.dtpFechaFiltro.TabIndex = 2;
             this.dtpFechaFiltro.ValueChanged += new System.EventHandler(this.dtpFechaFiltro_ValueChanged);
             // 
@@ -64,12 +131,12 @@
             this.dgvTurnosDelDia.BackgroundColor = System.Drawing.Color.White;
             this.dgvTurnosDelDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTurnosDelDia.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvTurnosDelDia.Location = new System.Drawing.Point(20, 70);
+            this.dgvTurnosDelDia.Location = new System.Drawing.Point(20, 115);
             this.dgvTurnosDelDia.Name = "dgvTurnosDelDia";
             this.dgvTurnosDelDia.ReadOnly = true;
             this.dgvTurnosDelDia.RowHeadersVisible = false;
             this.dgvTurnosDelDia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTurnosDelDia.Size = new System.Drawing.Size(940, 460);
+            this.dgvTurnosDelDia.Size = new System.Drawing.Size(940, 420);
             this.dgvTurnosDelDia.TabIndex = 3;
             this.dgvTurnosDelDia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurnosDelDia_CellClick);
             // 
@@ -121,6 +188,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 611);
+            this.Controls.Add(this.cmbFiltroEspecialidad);
+            this.Controls.Add(this.lblEspecialidad);
+            this.Controls.Add(this.cmbFiltroEstado);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.txtBuscarTurno);
+            this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.btnCancelarTurno);
             this.Controls.Add(this.btnAsistio);
             this.Controls.Add(this.btnNuevoTurno);
@@ -137,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnosDelDia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label lblTitulo;
@@ -146,5 +220,11 @@
         private System.Windows.Forms.Button btnNuevoTurno;
         private System.Windows.Forms.Button btnAsistio;
         private System.Windows.Forms.Button btnCancelarTurno;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.TextBox txtBuscarTurno;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.ComboBox cmbFiltroEstado;
+        private System.Windows.Forms.Label lblEspecialidad;
+        private System.Windows.Forms.ComboBox cmbFiltroEspecialidad;
     }
 }
