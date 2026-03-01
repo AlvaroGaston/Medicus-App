@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -80,6 +80,7 @@ namespace Medicus.UX
             AgregarFilaJerarquica(dt, permisosVisibles, "btnPacientes", "      ↳ Acceso a Pacientes");
             AgregarFilaJerarquica(dt, permisosVisibles, "btnMedicos", "      ↳ Acceso a Médicos");
             AgregarFilaJerarquica(dt, permisosVisibles, "btnReportes", "      ↳ Acceso a Reportes");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnActualizar", "      ↳ Actualizar Dashboard");
 
             // 2. TURNOS
             AgregarFilaJerarquica(dt, permisosVisibles, "frmTableroTurnos", "▶ GESTIÓN DE TURNOS");
@@ -105,6 +106,7 @@ namespace Medicus.UX
             AgregarFilaJerarquica(dt, permisosVisibles, "frmReportes", "▶ REPORTES");
             AgregarFilaJerarquica(dt, permisosVisibles, "btnImprimirComprobante", "      ↳ Imprimir Comprobantes");
             AgregarFilaJerarquica(dt, permisosVisibles, "btnImprimirAgenda", "      ↳ Imprimir Agenda Médica");
+            AgregarFilaJerarquica(dt, permisosVisibles, "btnBuscarMedico", "      ↳ Buscar Médico para Agenda");
 
             // 6. ADMINISTRACIÓN MÁXIMA
             AgregarFilaJerarquica(dt, permisosVisibles, "frmSeguridad", "▶ SEGURIDAD DEL SISTEMA");

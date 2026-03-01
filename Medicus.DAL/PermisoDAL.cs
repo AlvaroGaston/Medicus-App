@@ -94,7 +94,7 @@ namespace Medicus.DAL
                         "frmMedicos", "frmBuscarMedico", "frmSeguridad", "frmBitacora", "frmReportes", "frmMantenimiento",
     
                         // --- Menú Principal ---
-                        "btnTurnos", "btnPacientes", "btnMedicos", "btnSeguridad", "btnBitacora", "btnReportes", "btnMantenimiento",
+                        "btnTurnos", "btnPacientes", "btnMedicos", "btnSeguridad", "btnBitacora", "btnReportes", "btnMantenimiento", "btnActualizar",
 
                         // --- Turnos ---
                         "btnNuevoTurno", "btnAsistio", "btnCancelarTurno", "btnBuscarPaciente", "btnConfirmarTurno", "btnImprimirRecibo",
@@ -106,13 +106,14 @@ namespace Medicus.DAL
                         "btnGuardarDr", "btnGuardarMedico", "btnEditarMedico", "btnEliminarMedico",
     
                         // --- Reportes ---
-                        "btnImprimirComprobante", "btnImprimirAgenda",
+                        "btnImprimirComprobante", "btnImprimirAgenda", "btnBuscarMedico", 
     
                         // --- Seguridad ---
                         "btnNuevoRol", "btnEditarRol", "btnEliminarRol", "btnGuardarPermisos",
 
                         // --- Mantenimiento ---
                         "btnEjecutarBackup", "btnEjecutarRestore"
+
                     };
                     foreach (string item in listaMaestra)
                     {
